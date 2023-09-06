@@ -1,0 +1,321 @@
+{% comment %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+body {
+  font-family: Segoe UI;
+  background-color: #7ef29d;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 6px solid lightgray;
+  padding-left: 6px;
+  margin-left: 15px;
+}
+
+.main {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: white;
+
+  box-shadow: 5px 10px #888888;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 24px;
+
+  border-bottom: 1px solid lightgray;
+}
+
+.user-menu ul li a,
+.main-menu ul li a {
+  color: black;
+  font-weight: 700;
+}
+
+.user-menu ul li a:hover,
+.main-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+.user-menu ul li {
+  display: inline;
+  margin-left: 12px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-question-page,
+.login-page,
+.register-page {
+  margin: 0 auto;
+  min-width: 50%;
+  max-width: 50%;
+}
+
+.title {
+  margin: 20px auto 30px auto;
+  font-weight: 900;
+}
+
+.question-list-item {
+  margin-bottom: 20px;
+}
+
+.question-list-item a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.question-list-item-title {
+  color: black;
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0
+}
+
+.question-list-item-author {
+  color: lightgray;
+  margin: 0;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.fieldWrapper label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.fieldWrapper input {
+  margin-bottom: 6px;
+  border: 1px solid lightgray;
+  min-height: 40px;
+}
+
+.error {
+  font-size: 14px;
+  color: red;
+}
+
+.errorlist {
+  margin: 0;
+}
+
+.non_form_errors {
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  display: block;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.question-title {
+  font-weight: 900;
+  margin: 20px auto 0 auto;
+}
+
+.question-body {
+  margin-bottom: 6px;
+}
+
+.question-author {
+  font-size: 14px;
+  color: lightgray;
+}
+
+.responses-container {
+  border-top: 1px solid lightgray;
+  margin-top: 30px;
+}
+
+.responses-container-heading {
+  color: lightgray;
+}
+
+.no-responses-text {
+  color: lightgray;
+}
+
+.response-body {
+  margin: 0;
+}
+
+.response-author {
+  color: lightgray;
+  font-style: italic;
+}
+
+.reply-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  text-transform: lowercase;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.response-form {
+  margin-top: 20px;
+  border-top: 1px solid lightgray;
+  padding: 30px;
+}
+
+.reply-form-container {
+  display: none;
+}
+
+.reply-form-container.enabled {
+  display: block;
+}
+
+.reply-form textarea {
+  width: 100%;
+}
+
+.reply-form-cancel-button {
+  font-weight: 600;
+  color: orange;
+  background-color: transparent;
+  border: none;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.reply-form-submit-button {
+  font-weight: 600;
+  color: white;
+  background-color: orange;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+    * {
+        padding: 0;
+        margin: 0;
+      }
+      
+      body {
+        font-family: Arial, Tahoma, Serif;
+        color: #263238;
+      }
+      nav {
+        display: flex;
+        justify-content:space-between; 
+        align-items: center;
+        padding: 1rem 2rem;
+        background: #cfd8dc; 
+      }      
+      nav ul {
+        display: flex;
+        list-style: none; 
+      }      
+      nav li {
+        padding-left: 1rem; 
+      }      
+      nav a {
+        text-decoration: none;
+        color: #0d47a1
+      }
+       /* 
+        Extra small devices (phones, 600px and down) 
+      */
+      @media only screen and (max-width: 600px) {
+        nav {
+          flex-direction: column;
+        }
+        nav ul {
+          flex-direction: column;
+          padding-top: 0.5rem;
+        }
+        nav li {
+          padding: 0.5rem 0;
+        }
+      } 
+      
+      {% comment %} {  url("https://www.roberthalf.com/sites/default/files/2018-08/job-interview-questions_4_types%20rh_2018.jpg") {% endcomment %}
+     {% comment %} body
+      { background-color:cyan;  
+      }   
+    </style>
+    </head>
+    <nav>
+        <h2>Interview Preparation</h2>
+        <ul>
+          <li><a href="{% url 'index' %}">Questions</a></li>
+        </ul>
+         <ul>
+          {% if user.is_authenticated %}
+          <li><a href="#">Scores</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+         </ul>
+      </nav>
+    <body>
+        {% block content %}
+        
+        {% endblock %}
+    </body>
+</html>
+{% endcomment %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?{% now "U" %}"/>
+    <script src="{% static 'js/main.js' %}?{% now "U" %}"></script>
+    <title>interviewprep</title>
+  </head>
+  <body>
+    <div class="main">
+    {% include 'navbar.html' %}
+    {% block content %}
+    {% endblock %}
+    </div>
+  </body>
+</html>

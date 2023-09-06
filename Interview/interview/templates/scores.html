@@ -1,0 +1,17 @@
+{% extends 'layout/page.html' %}
+
+{% block content %}
+<div class="page">
+<h1 class="title">Scores</h1>
+
+{% for question in questions %}
+<div class="question-list-item">
+  <a href="{% url 'question' question.id %}">
+    <p class="question-list-item-title">
+      {{question.title}} </p></a> : {{question.max_score}}
+    
+  
+</div>
+{% endfor %}
+</div>
+{% endblock %}
